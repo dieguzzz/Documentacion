@@ -1,6 +1,6 @@
 {
-  "name": " ",
-  "version": "0.0.1",
+  "name": "documentacion",
+  "version": "1.0.0",
   "description": "",
   "private": true,
   "keywords": [
@@ -10,8 +10,11 @@
   "author": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --open --config webpack.config.dev.js",
+    "start": "serve .",
     "build": "webpack --config webpack.config.prod.js"
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^11.0.0",
