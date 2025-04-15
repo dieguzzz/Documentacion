@@ -14,7 +14,8 @@
     "build": "webpack --config webpack.config.prod.js"
   },
   "dependencies": {
-    "serve": "^14.2.0"
+    "serve": "^14.2.0",
+    "http-server": "^14.1.0"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^11.0.0",
