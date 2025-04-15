@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentación</title>
+  <link rel="stylesheet" href="CSS1.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.itse.ac.pa/themes/default/assets/icons/favicon-16x16.png">
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.3/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+</head>
+<body>
+<nav class="navbar navbar-dark fixed-top custom-navbar" style="display: contents;">
+  <div class="container-fluid">
+    <div class="col-12 col-md-3 align-self-center" style="background-color: #18446c; padding: 1%; margin: 3%;">
+      <a class="navbar-brand" href="https://www.itse.ac.pa/"><img class="img-fluid pl-0" src="https://www.itse.ac.pa/content/logo/logo_itse.svg" alt="ITSE Logo"></a>
+    </div>
+  </div>
+</nav>
+<div class="container mt-5">
+  <h1 class="mb-4">Documentación</h1>
+  <div>
+    <h2>Introducción</h2>
+    <p>Este documento proporciona una descripción general del proyecto de gestión basado en la web para una institución educativa ITSE.</p>
+    <p>Se destacarán las funcionalidades clave, la estructura del proyecto y la interacción con la base de datos.</p>
+
+    <h2>Sección 1: Estructura del Proyecto</h2>
+    <p>El directorio principal es <code>parcial1</code>, que contiene todos los archivos fuente y recursos.</p>
+    <p>La carpeta <code>.idea/</code> incluye configuraciones específicas para el IDE.</p>
+    <p>Dentro de <code>controladores/</code>, se encuentran scripts PHP para manejar operaciones de backend, como agregar y eliminar registros.</p>
+    <p>Archivos clave incluyen <code>INDEX.php</code> (punto de entrada), <code>INICIAR_SESION.php</code> (inicio de sesión) y <code>REGISTRO.php</code> (registro de usuarios).</p>
+    <p>Otros archivos y directorios importantes incluyen:</p>
+    <ul>
+      <li><code>cerrar_sesion.php</code>: Maneja el cierre de sesión de los usuarios.</li>
+      <li><code>dejar_tarea.php</code>: Permite a los profesores dejar tareas para los estudiantes.</li>
+      <li><code>MAPA.php</code>: Muestra un mapa interactivo de las instalaciones de la institución.</li>
+      <li><code>SISTEMA_GESTION_HT.php</code>, <code>SISTEMA_GESTION_ID.PHP</code>, <code>SISTEMA_GESTION_NG.php</code>, <code>SISTEMA_GESTION_TI.php</code>: Páginas para la gestión de diferentes departamentos o sistemas dentro de la institución.</li>
+      <li><code>CSS1.css</code>: Archivo principal de estilos CSS.</li>
+      <li><code>Videos/</code>, <code>FONTS/</code>, <code>Fotos/</code>: Directorios que contienen videos, fuentes e imágenes utilizados en la aplicación.</li>
+    </ul>
+
+    <h2>Sección 2: Funcionalidades Clave</h2>
+    <h3>Autenticación de Usuarios</h3>
+    <p>Gestión de inicio de sesión y registro, restringiendo acceso a ciertas páginas.</p>
+    <ul>
+      <li><code>INICIAR_SESION.php</code>: Página de inicio de sesión que verifica las credenciales del usuario y establece las variables de sesión.</li>
+      <li><code>REGISTRO.php</code>: Página de registro que permite a los nuevos usuarios crear una cuenta.</li>
+      <li><code>cerrar_sesion.php</code>: Script que maneja el cierre de sesión de los usuarios.</li>
+    </ul>
+    <h3>Gestión de Datos</h3>
+    <p>Scripts para interactuar con diferentes tablas en la base de datos.</p>
+    <ul>
+      <li><code>anadir-HT.php</code>, <code>anadir-ID.php</code>, <code>anadir-NG.php</code>, <code>anadir-TI.php</code>: Scripts para agregar nuevos registros a las tablas correspondientes.</li>
+      <li><code>eliminar_HT.php</code>, <code>eliminar_ID.php</code>, <code>eliminar_NG.php</code>, <code>eliminar_TI.php</code>: Scripts para eliminar registros de las tablas correspondientes.</li>
+      <li><code>controlador_HT.php</code>: Script para obtener y mostrar datos de la tabla de profesores.</li>
+      <li><code>controlar-editar_HT.php</code>, <code>controlar-editar_ID.php</code>, <code>controlar-editar_NG.php</code>, <code>controlar-editar_TI.php</code>: Scripts para actualizar registros en las tablas correspondientes.</li>
+    </ul>
+    <h3>Navegación y UI</h3>
+    <p>Uso de Bootstrap para diseño responsivo y una experiencia de usuario mejorada.</p>
+    <ul>
+      <li><code>INDEX.php</code>: Página principal que incluye una barra de navegación, un video de fondo y un botón para iniciar un recorrido.</li>
+      <li><code>MAPA.php</code>: Página que muestra un mapa interactivo de las instalaciones de la institución.</li>
+      <li><code>dejar_tarea.php</code>: Página que permite a los profesores dejar tareas para los estudiantes.</li>
+      <li><code>tareas.php</code>: Página que muestra una lista de tareas disponibles para los usuarios.</li>
+    </ul>
+
+    <h2>Sección 3: Diagrama de Flujo y Explicación del Flujo de Datos</h2>
+
+    <h3>Diagrama de Flujo</h3>
+    <div class="mermaid">
+      graph TD
+      A[Usuario] -->|Accede| B[INDEX.php]
+      B -->|Iniciar Sesión| C[INICIAR_SESION.php]
+      B -->|Registrarse| D[REGISTRO.php]
+      B -->|Mapa de Escuelas| E[MAPA.php]
+      C -->|Verifica Credenciales| F{Credenciales Correctas?}
+      F -->|Sí| G[Redirige a tareas.php]
+      F -->|No| H[Muestra Error]
+      D -->|Envía Datos de Registro| I[Procesa Registro]
+      I -->|Registro Exitoso| C
+      I -->|Error en Registro| J[Muestra Error]
+      E -->|Selecciona Escuela| K{Escuela Seleccionada}
+      K -->|Innovación Digital| L[SISTEMA_GESTION_ID.php]
+      K -->|Negocios| M[SISTEMA_GESTION_NG.php]
+      K -->|Hospitalidad y Turismo| N[SISTEMA_GESTION_HT.php]
+      K -->|Tecnología Industrial| O[SISTEMA_GESTION_TI.php]
+      G -->|Ver Tareas| P[tareas.php]
+      P -->|Dejar Tarea| Q[dejar_tarea.php]
+      P -->|Cerrar Sesión| R[cerrar_sesion.php]
+      Q -->|Envía Datos de Tarea| S[Procesa Tarea]
+      S -->|Tarea Exitosa| P
+      S -->|Error en Tarea| T[Muestra Error]
+      R -->|Redirige a| C
+    </div>
+
+    <h3>Explicación del Flujo de Datos</h3>
+    <h4>1. Inicio</h4>
+    <p><strong>Usuario</strong> accede a la página principal INDEX.php.</p>
+    <p>Desde aquí, el usuario puede:</p>
+    <ul>
+      <li>Iniciar sesión (INICIAR_SESION.php).</li>
+      <li>Registrarse (REGISTRO.php).</li>
+      <li>Ver el mapa de escuelas (MAPA.php).</li>
+    </ul>
+
+    <h4>2. Iniciar Sesión</h4>
+    <p>El usuario ingresa sus credenciales en INICIAR_SESION.php.</p>
+    <p>El sistema verifica las credenciales:</p>
+    <ul>
+      <li>Si son correctas, redirige al usuario a tareas.php.</li>
+      <li>Si son incorrectas, muestra un mensaje de error.</li>
+    </ul>
+
+    <h4>3. Registrarse</h4>
+    <p>El usuario completa el formulario de registro en REGISTRO.php.</p>
+    <p>El sistema procesa los datos de registro:</p>
+    <ul>
+      <li>Si el registro es exitoso, redirige al usuario a INICIAR_SESION.php.</li>
+      <li>Si hay un error, muestra un mensaje de error.</li>
+    </ul>
+
+    <h4>4. Mapa de Escuelas</h4>
+    <p>El usuario puede seleccionar una escuela en MAPA.php.</p>
+    <p>Dependiendo de la selección, el usuario es redirigido a:</p>
+    <ul>
+      <li>SISTEMA_GESTION_ID.php para Innovación Digital.</li>
+      <li>SISTEMA_GESTION_NG.php para Negocios.</li>
+      <li>SISTEMA_GESTION_HT.php para Hospitalidad y Turismo.</li>
+      <li>SISTEMA_GESTION_TI.php para Tecnología Industrial.</li>
+    </ul>
+
+    <h4>5. Gestión de Tareas</h4>
+    <p>En tareas.php, el usuario puede:</p>
+    <ul>
+      <li>Ver las tareas asignadas.</li>
+      <li>Dejar una nueva tarea (dejar_tarea.php).</li>
+      <li>Cerrar sesión (cerrar_sesion.php).</li>
+    </ul>
+
+    <h4>6. Dejar Tarea</h4>
+    <p>El usuario completa el formulario para dejar una tarea en dejar_tarea.php.</p>
+    <p>El sistema procesa los datos de la tarea:</p>
+    <ul>
+      <li>Si la tarea se registra exitosamente, redirige al usuario a tareas.php.</li>
+      <li>Si hay un error, muestra un mensaje de error.</li>
+    </ul>
+
+    <h4>7. Cerrar Sesión</h4>
+    <p>El usuario cierra sesión en cerrar_sesion.php.</p>
+    <p>El sistema destruye la sesión y redirige al usuario a INICIAR_SESION.php.</p>
+
+    <h2>Conclusión</h2>
+    <p>Este proyecto representa un sistema de gestión integral que facilita la autenticación de usuarios y la gestión de datos, cumpliendo con los objetivos de proporcionar una plataforma eficiente para la institución educativa.</p>
+    <p>La estructura del proyecto está bien organizada, con una clara separación entre los scripts de backend y los archivos de frontend.</p>
+    <p>El uso de Bootstrap y otros recursos externos mejora la experiencia del usuario y asegura que la aplicación sea responsiva y fácil de usar.</p>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
