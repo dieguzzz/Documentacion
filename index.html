@@ -39,7 +39,38 @@
 <h2>📦 Diseño de la solución</h2>
 <p>El diseño de la solución se basa en un flujo de CI/CD automatizado que utiliza herramientas modernas para garantizar un despliegue continuo y eficiente de la aplicación Angular. A continuación, se describe el flujo:</p>
 
-<pre> ```mermaid graph TD A[Commit en GitHub (rama main)] --> B[Render detecta el cambio] B --> C[Instalación de dependencias (npm install)] C --> D[Compilación del proyecto Angular en modo producción] D --> E[Despliegue automático al entorno en la nube] E --> F[Publicación en un entorno accesible desde internet] ``` </pre>
+<div class="flowchart">
+  <div class="step">Commit en GitHub (rama main)</div>
+  <div class="arrow">↓</div>
+  <div class="step">Render detecta el cambio</div>
+  <div class="arrow">↓</div>
+  <div class="step">Instalación de dependencias (npm install)</div>
+  <div class="arrow">↓</div>
+  <div class="step">Compilación del proyecto Angular en modo producción</div>
+  <div class="arrow">↓</div>
+  <div class="step">Despliegue automático al entorno en la nube</div>
+  <div class="arrow">↓</div>
+  <div class="step">Publicación en un entorno accesible desde internet</div>
+</div>
+
+<style>
+  .flowchart {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  .step {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #18446c;
+    color: white;
+    border-radius: 5px;
+  }
+  .arrow {
+    font-size: 24px;
+    color: #18446c;
+  }
+</style>
   
 
     <div>
