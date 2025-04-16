@@ -80,8 +80,15 @@
         <li>Render como plataforma de despliegue continuo.</li>
         <img src="./img/rendermain.png" alt="Render" class="img-fluid mb-3">
         <li>GitHub para control de versiones e integración automática.</li>
+        <img src="./img/github.png" alt="GitHub" class="img-fluid mb-3">
         <li>Angular como framework de desarrollo frontend.</li>
         <li>Serve como servidor estático en entorno de producción.</li>
+        <pre><code>services:
+          - type: static
+            name: index.html
+            env: static
+            staticPublishPath: .
+        </code></pre>
       </ul>
       <hr>
       <h3>🔄 Flujo de CI/CD implementado:</h3>
